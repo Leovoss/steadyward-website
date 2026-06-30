@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__d0d0eff3-2d2e-49dc-b038-48a1586b4529__job_display",
+      "Bash(curl -sL \"https://d8j0ntlcm91z4.cloudfront.net/user_3FapJP7UowItSf1JCkea5XwA0xo/hf_20260624_180132_7a1cd640-6698-424c-8d84-7228e156f0dd.jpeg\" -o \"/c/Users/Leo work/Documents/Steadyhand Website/images/hero.jpeg\")"
+    ]
+  }
+}
