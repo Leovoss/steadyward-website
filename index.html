@@ -96,17 +96,17 @@
             <div class="grid grid-cols-3 divide-x rule border-b rule">
               <div class="p-3.5">
                 <div class="text-[10px] label uppercase text-ink/45">At risk now</div>
-                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none">37</div>
+                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none countup" data-countup="37">37</div>
                 <div class="text-[11px] text-ink/45">of 1,284</div>
               </div>
               <div class="p-3.5">
                 <div class="text-[10px] label uppercase text-ink/45">Median life</div>
-                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none">19d</div>
+                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none countup" data-countup="19" data-suffix="d">19d</div>
                 <div class="text-[11px] font-semibold text-blue">&#9650; +8d</div>
               </div>
               <div class="p-3.5">
                 <div class="text-[10px] label uppercase text-ink/45">30-day ret.</div>
-                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none">64%</div>
+                <div class="mt-1 text-[1.6rem] display font-medium text-ink leading-none countup" data-countup="64" data-suffix="%">64%</div>
                 <div class="text-[11px] font-semibold text-blue">&#9650; +13</div>
               </div>
             </div>
@@ -154,8 +154,8 @@
             marketing spend you've already burned, and another loss on the ratio your regulator watches.
           </p>
           <div class="mt-10 grid grid-cols-3 gap-6">
-            <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium">11</div><p class="mt-1 text-[13.5px] text-white/55">days to blow-up (median)</p></div>
-            <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium">1&times;</div><p class="mt-1 text-[13.5px] text-white/55">CAC wasted per dead account</p></div>
+            <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium countup" data-countup="11">11</div><p class="mt-1 text-[13.5px] text-white/55">days to blow-up (median)</p></div>
+            <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium countup" data-countup="1" data-suffix="&times;">1&times;</div><p class="mt-1 text-[13.5px] text-white/55">CAC wasted per dead account</p></div>
             <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium">0</div><p class="mt-1 text-[13.5px] text-white/55">new liability added</p></div>
           </div>
         </div>
@@ -265,7 +265,7 @@
             <line x1="190" y1="36" x2="190" y2="240" stroke="#0e1526" stroke-opacity="0.2" stroke-dasharray="2 4"/>
             <text x="196" y="50" font-family="Inter, sans-serif" font-size="10" fill="#0e1526" fill-opacity="0.5">day 11</text>
             <path d="M44 36 L120 98 L190 152 L290 200 L390 220 L480 230" fill="none" stroke="#0e1526" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" stroke-opacity="0.5"/>
-            <path d="M44 36 L120 66 L190 92 L290 116 L390 134 L480 146" fill="none" stroke="#1d44d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M44 36 L120 66 L190 92 L290 116 L390 134 L480 146" fill="none" stroke="#1d44d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/>
             <circle cx="480" cy="146" r="4" fill="#1d44d8"/><circle cx="480" cy="230" r="4" fill="#0e1526" fill-opacity="0.5"/>
           </svg>
           <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[13px]">
@@ -575,6 +575,32 @@
       document.getElementById('cookie-accept').addEventListener('click', function(){ save('accepted'); });
       document.getElementById('cookie-reject').addEventListener('click', function(){ save('rejected'); });
       document.querySelectorAll('[data-cookie-settings]').forEach(function(el){ el.addEventListener('click', function(e){ e.preventDefault(); show(); }); });
+    })();
+  </script>
+  <script>
+    (function(){
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function countUp(el){
+        var to = parseFloat(el.getAttribute('data-countup'));
+        var suf = el.getAttribute('data-suffix') || '';
+        if (isNaN(to)) return;
+        if (reduce){ el.textContent = to + suf; return; }
+        var dur = 1100, t0 = null;
+        function step(ts){ if(!t0) t0 = ts; var p = Math.min((ts-t0)/dur,1); var e = 1-Math.pow(1-p,3); el.textContent = Math.round(to*e) + suf; if(p<1) requestAnimationFrame(step); else el.textContent = to + suf; }
+        requestAnimationFrame(step);
+      }
+      var cObs = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); cObs.unobserve(e.target); } }); }, { threshold: 0.6 });
+      document.querySelectorAll('.countup').forEach(function(el){ cObs.observe(el); });
+
+      var line = document.querySelector('.draw-line');
+      if (line && !reduce){
+        try {
+          var len = line.getTotalLength();
+          line.style.strokeDasharray = len; line.style.strokeDashoffset = len;
+          var lObs = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ line.style.transition = 'stroke-dashoffset 1.4s ease'; line.style.strokeDashoffset = '0'; lObs.unobserve(e.target); } }); }, { threshold: 0.4 });
+          lObs.observe(line);
+        } catch(err){}
+      }
     })();
   </script>
 </body>
