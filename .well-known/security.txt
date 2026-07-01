@@ -1,0 +1,3 @@
+Contact: mailto:ratko@steadyhand.app
+Preferred-Languages: en
+Expires: 2027-06-30T00:00:00.000Z
