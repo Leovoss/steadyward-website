@@ -17,6 +17,8 @@
   <meta name="twitter:image" content="https://steadyhand-website-atx.pages.dev/og-image.png" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/inter_v20_UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/jbmono_tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts.css" />
   <link rel="stylesheet" href="assets/styles.css" />
   <style>
@@ -38,9 +40,11 @@
     .sh-chip[aria-pressed="true"]{ background:rgba(29,68,216,.10); color:#1d44d8; border-color:rgba(29,68,216,.35); }
     .sh-row{ cursor:pointer; }
     .sh-row:hover{ background:rgba(29,68,216,.035); }
+    .sh-row:focus-visible{ outline:2px solid #1d44d8; outline-offset:-2px; }
     .sh-caret{ transition:transform .15s ease; }
     .sh-row[aria-expanded="true"] .sh-caret{ transform:rotate(90deg); }
   </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SteadyHand","url":"https://steadyhand.app/","logo":"https://steadyhand.app/apple-touch-icon.png","email":"ratko@steadyhand.app","description":"Read-only behavioural retention layer for MT4 and MT5 brokers."}</script>
 </head>
 
 <body class="font-sans bg-white text-ink/80 selection:bg-blue/15 selection:text-ink">
@@ -55,9 +59,9 @@
         <a href="#product" class="hover:text-ink transition">What you get</a>
         <a href="#book" class="hover:text-ink transition">On your book</a>
       </nav>
-      <a href="#pilot" class="text-[14px] font-semibold px-4 py-2 rounded-full bg-blue text-white hover:bg-ink transition">Book a demo</a>
+      <div class="flex items-center gap-2"><a href="#pilot" class="text-[14px] font-semibold px-4 py-2 rounded-full bg-blue text-white hover:bg-ink transition">Book a demo</a><button id="nav-toggle" type="button" class="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border rule text-ink" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
     </div>
-  </header>
+  <div id="mobile-nav" class="hidden md:hidden border-t rule bg-white"><nav class="max-w-6xl mx-auto px-5 sm:px-6 py-2 flex flex-col text-[15px]"><a href="#leak" class="py-3 border-b rule text-ink/70">The problem</a><a href="#roi" class="py-3 border-b rule text-ink/70">The math</a><a href="#product" class="py-3 border-b rule text-ink/70">What you get</a><a href="#book" class="py-3 border-b rule text-ink/70">On your book</a><a href="#pilot" class="py-3 font-semibold text-blue">Book a demo</a></nav></div></header>
 
   <main id="top">
 
@@ -65,7 +69,7 @@
     <section class="border-b rule">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16">
         <div class="max-w-3xl mx-auto text-center">
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">Retention for retail MT4 &amp; MT5 brokers</p>
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">Retention for retail MT4 &amp; MT5 brokers</p>
           <h1 class="mt-5 display text-[2rem] sm:text-[2.55rem] lg:text-[2.9rem] leading-[1.05] tracking-[-0.02em] text-ink font-medium">
             New traders blow up in <span class="italic text-blue">eleven days.</span>
           </h1>
@@ -83,24 +87,24 @@
         <div id="sh-console" class="reveal mt-8 sm:mt-10 mx-auto max-w-5xl border rule rounded-xl overflow-hidden bg-white shadow-md">
           <div class="flex items-center gap-2.5 px-4 h-11 bg-panel border-b rule">
             <span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span><span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span><span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
-            <span class="ml-2 font-mono text-[12px] text-ink/50">app.steadyhand.io/console</span>
-            <span class="ml-auto font-mono text-[11px] text-ink/50 flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-blue"></span> Live</span>
+            <span class="ml-2 hidden sm:inline font-mono text-[12px] text-ink/50">app.steadyhand.io/console</span>
+            <span class="ml-auto inline-flex items-center gap-1.5 rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2.5 py-1"><span class="text-[9px]">&#9654;</span> Try it &middot; click around</span><span class="ml-3 shrink-0 font-mono text-[11px] text-ink/50 flex items-center gap-1.5"><span class="h-1.5 w-1.5 rounded-full bg-blue"></span> Live</span>
           </div>
           <div role="tablist" class="flex items-center gap-1 px-3 h-12 border-b rule overflow-x-auto">
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="overview" aria-selected="true">Overview</button>
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="queue" aria-selected="false">At-risk queue</button>
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="cohorts" aria-selected="false">Cohorts</button>
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="alerts" aria-selected="false">Alerts</button>
-            <span class="ml-auto shrink-0 pl-3 font-mono text-[11px] text-ink/40">1,284 accounts</span>
+            <span class="ml-auto shrink-0 pl-3 font-mono text-[11px] text-ink/55">1,284 accounts</span>
           </div>
 
           <!-- OVERVIEW -->
           <div class="sh-panel" data-panel="overview">
             <div class="grid grid-cols-2 md:grid-cols-4 border-b rule divide-x divide-y md:divide-y-0 rule">
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/45">At risk now</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="37">37</span><span class="font-mono text-[11px] text-ink/40 mb-0.5">/ 1,284</span></div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/45">Median lifespan</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="19" data-suffix="d">19d</span><span class="font-mono text-[11px] font-semibold text-blue mb-0.5">&#9650; 8d</span></div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/45">30-day retention</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="64" data-suffix="%">64%</span><span class="font-mono text-[11px] font-semibold text-blue mb-0.5">&#9650; 13</span></div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/45">Alerts today</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="142">142</span></div></div>
+              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">At risk now</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="37">37</span><span class="font-mono text-[11px] text-ink/55 mb-0.5">/ 1,284</span></div></div>
+              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Median lifespan</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="19" data-suffix="d">19d</span><span class="font-mono text-[11px] font-semibold text-blue mb-0.5">&#9650; 8d</span></div></div>
+              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">30-day retention</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="64" data-suffix="%">64%</span><span class="font-mono text-[11px] font-semibold text-blue mb-0.5">&#9650; 13</span></div></div>
+              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Alerts today</div><div class="mt-1.5 flex items-end gap-1.5"><span class="font-mono text-[1.7rem] font-semibold text-ink leading-none countup" data-countup="142">142</span></div></div>
             </div>
             <div class="grid lg:grid-cols-[1fr,1.35fr] divide-y lg:divide-y-0 lg:divide-x rule">
               <div class="p-5">
@@ -108,7 +112,7 @@
                 <svg viewBox="0 0 320 120" class="mt-4 w-full aspect-[320/120]" role="img" aria-label="At-risk accounts trending down over fourteen days">
                   <rect x="6" y="28" width="16" height="92" rx="2" fill="#1d44d8" fill-opacity="0.28"/><rect x="28" y="34" width="16" height="86" rx="2" fill="#1d44d8" fill-opacity="0.3"/><rect x="50" y="30" width="16" height="90" rx="2" fill="#1d44d8" fill-opacity="0.3"/><rect x="72" y="40" width="16" height="80" rx="2" fill="#1d44d8" fill-opacity="0.34"/><rect x="94" y="36" width="16" height="84" rx="2" fill="#1d44d8" fill-opacity="0.36"/><rect x="116" y="46" width="16" height="74" rx="2" fill="#1d44d8" fill-opacity="0.4"/><rect x="138" y="50" width="16" height="70" rx="2" fill="#1d44d8" fill-opacity="0.45"/><rect x="160" y="44" width="16" height="76" rx="2" fill="#1d44d8" fill-opacity="0.5"/><rect x="182" y="56" width="16" height="64" rx="2" fill="#1d44d8" fill-opacity="0.55"/><rect x="204" y="62" width="16" height="58" rx="2" fill="#1d44d8" fill-opacity="0.62"/><rect x="226" y="60" width="16" height="60" rx="2" fill="#1d44d8" fill-opacity="0.7"/><rect x="248" y="70" width="16" height="50" rx="2" fill="#1d44d8" fill-opacity="0.8"/><rect x="270" y="74" width="16" height="46" rx="2" fill="#1d44d8" fill-opacity="0.9"/><rect x="292" y="80" width="16" height="40" rx="2" fill="#1d44d8"/>
                 </svg>
-                <div class="mt-2 font-mono text-[10px] text-ink/40">daily at-risk count, last 14 days</div>
+                <div class="mt-2 font-mono text-[10px] text-ink/55">daily at-risk count, last 14 days</div>
               </div>
               <div>
                 <div class="flex items-center justify-between px-5 py-3 border-b rule"><span class="text-[13px] font-semibold text-ink">Top at-risk now</span><button type="button" data-tab-link="queue" class="font-mono text-[11px] text-blue hover:underline">View all &rarr;</button></div>
@@ -124,28 +128,28 @@
           <!-- AT-RISK QUEUE -->
           <div class="sh-panel hidden" data-panel="queue">
             <div class="flex flex-wrap items-center gap-2 px-4 py-3 border-b rule">
-              <span class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mr-1">Filter</span>
+              <span class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mr-1">Filter</span>
               <button type="button" class="sh-chip" data-filter="all" aria-pressed="true">All</button>
               <button type="button" class="sh-chip" data-filter="revenge" aria-pressed="false">Revenge</button>
               <button type="button" class="sh-chip" data-filter="oversize" aria-pressed="false">Sizing up</button>
               <button type="button" class="sh-chip" data-filter="plan" aria-pressed="false">Plan breach</button>
-              <span class="ml-auto font-mono text-[11px] text-ink/40">click a row &rarr; see the alert</span>
+              <span class="ml-auto font-mono text-[11px] text-ink/55">click a row &rarr; see the alert</span>
             </div>
             <table class="w-full text-[13px]">
-              <thead><tr class="border-b rule font-mono text-[10px] uppercase text-ink/40"><th class="px-5 py-2 text-left font-medium">Account</th><th class="px-5 py-2 text-left font-medium">Pattern</th><th class="px-5 py-2 text-right font-medium">Risk</th><th class="px-5 py-2 text-right font-medium hidden sm:table-cell">Status</th></tr></thead>
+              <thead><tr class="border-b rule font-mono text-[10px] uppercase text-ink/55"><th class="px-5 py-2 text-left font-medium">Account</th><th class="px-5 py-2 text-left font-medium">Pattern</th><th class="px-5 py-2 text-right font-medium">Risk</th><th class="px-5 py-2 text-right font-medium hidden sm:table-cell">Status</th></tr></thead>
               <tbody class="divide-y rule">
                 <tr class="sh-row" data-pattern="revenge" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;21</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Revenge trading</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">86</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Alerted</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">EURUSD SELL opened 47s after a loss, at 2.4&times; average size. This pattern preceded 6 of the last 9 red days.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 86</span><span>first seen 14:32</span><span>status: alerted</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">EURUSD SELL opened 47s after a loss, at 2.4&times; average size. This pattern preceded 6 of the last 9 red days.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 86</span><span>first seen 14:32</span><span>status: alerted</span></div></div></td></tr>
                 <tr class="sh-row" data-pattern="oversize" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;07</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Sizing up after losses</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">74</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Alerted</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Position size stepped up 3&times; over your last 4 trades, all opened after a drawdown.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 74</span><span>first seen 14:31</span><span>status: alerted</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Position size stepped up 3&times; over your last 4 trades, all opened after a drawdown.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 74</span><span>first seen 14:31</span><span>status: alerted</span></div></div></td></tr>
                 <tr class="sh-row" data-pattern="plan" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;44</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Past their own plan</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">69</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Watching</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">That is trade 9 today. The daily cap you set yourself is 4.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 69</span><span>first seen 14:12</span><span>status: watching</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">That is trade 9 today. The daily cap you set yourself is 4.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 69</span><span>first seen 14:12</span><span>status: watching</span></div></div></td></tr>
                 <tr class="sh-row" data-pattern="revenge" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;12</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Revenge trading</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">63</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Watching</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Re-entered GBPUSD 90s after a stop-out, same direction, same size.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 63</span><span>first seen 13:56</span><span>status: watching</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Re-entered GBPUSD 90s after a stop-out, same direction, same size.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 63</span><span>first seen 13:56</span><span>status: watching</span></div></div></td></tr>
                 <tr class="sh-row" data-pattern="oversize" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;88</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Sizing up after losses</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">58</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Watching</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Lot size 2.1&times; your rolling average, following two losing trades.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 58</span><span>first seen 13:40</span><span>status: watching</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Lot size 2.1&times; your rolling average, following two losing trades.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 58</span><span>first seen 13:40</span><span>status: watching</span></div></div></td></tr>
                 <tr class="sh-row" data-pattern="plan" aria-expanded="false"><td class="px-5 py-2.5"><span class="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" class="sh-caret h-3 w-3 text-ink/40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg><span class="font-mono text-ink/60">#&bull;&bull;31</span></span></td><td class="px-5 py-2.5"><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Past their own plan</span></td><td class="px-5 py-2.5 text-right font-mono font-semibold text-ink">52</td><td class="px-5 py-2.5 text-right text-[12px] text-ink/50 hidden sm:table-cell">Watching</td></tr>
-                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/40 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Trading outside your declared session hours, third time this week.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 52</span><span>first seen 13:03</span><span>status: watching</span></div></div></td></tr>
+                <tr class="sh-detail hidden"><td colspan="4" class="px-5 pb-4"><div class="rounded-lg border rule bg-panel p-3.5"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60 mb-1.5">Alert sent to trader</div><p class="text-[13px] text-ink/80 leading-snug">Trading outside your declared session hours, third time this week.</p><div class="mt-2.5 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[11px] text-ink/45"><span>risk 52</span><span>first seen 13:03</span><span>status: watching</span></div></div></td></tr>
               </tbody>
             </table>
           </div>
@@ -153,10 +157,10 @@
           <!-- COHORTS -->
           <div class="sh-panel hidden" data-panel="cohorts">
             <div class="p-5">
-              <div class="flex items-baseline justify-between"><span class="text-[13px] font-semibold text-ink">First-deposit cohorts &middot; % still active</span><span class="font-mono text-[11px] text-ink/40">weekly</span></div>
+              <div class="flex items-baseline justify-between"><span class="text-[13px] font-semibold text-ink">First-deposit cohorts &middot; % still active</span><span class="font-mono text-[11px] text-ink/55">weekly</span></div>
               <div class="mt-4 overflow-x-auto">
                 <table class="w-full text-[12.5px] min-w-[440px]">
-                  <thead><tr class="font-mono text-[10px] uppercase text-ink/40"><th class="text-left font-medium py-1.5 pr-3">Cohort</th><th class="font-medium py-1.5 px-2 text-center">Day 0</th><th class="font-medium py-1.5 px-2 text-center">Day 7</th><th class="font-medium py-1.5 px-2 text-center">Day 14</th><th class="font-medium py-1.5 px-2 text-center">Day 30</th></tr></thead>
+                  <thead><tr class="font-mono text-[10px] uppercase text-ink/55"><th class="text-left font-medium py-1.5 pr-3">Cohort</th><th class="font-medium py-1.5 px-2 text-center">Day 0</th><th class="font-medium py-1.5 px-2 text-center">Day 7</th><th class="font-medium py-1.5 px-2 text-center">Day 14</th><th class="font-medium py-1.5 px-2 text-center">Day 30</th></tr></thead>
                   <tbody class="text-ink">
                     <tr><td class="py-1 pr-3 font-mono text-ink/55">May 5</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.40)">100%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.24)">61%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.15)">38%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.09)">22%</td></tr>
                     <tr><td class="py-1 pr-3 font-mono text-ink/55">May 12</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.40)">100%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.25)">63%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.16)">41%</td><td class="py-1 px-2 text-center font-mono" style="background:rgba(29,68,216,0.10)">25%</td></tr>
@@ -166,7 +170,7 @@
                   </tbody>
                 </table>
               </div>
-              <p class="mt-3 font-mono text-[10px] text-ink/45">SteadyHand enabled from the May 19 cohort (in blue). Illustrative.</p>
+              <p class="mt-3 font-mono text-[10px] text-ink/60">SteadyHand enabled from the May 19 cohort (in blue). Illustrative.</p>
             </div>
           </div>
 
@@ -182,7 +186,7 @@
             </div>
           </div>
 
-          <div class="px-4 py-2.5 bg-panel border-t rule text-center font-mono text-[10px] text-ink/45">Interactive demo on sample data &middot; click the tabs and rows</div>
+          <div class="px-4 py-2.5 bg-panel border-t rule text-center font-mono text-[10px] text-ink/60">Interactive demo on sample data &middot; click the tabs and rows</div>
         </div>
       </div>
     </section>
@@ -204,8 +208,8 @@
     <section id="leak" class="bg-ink text-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <p class="label text-[12px] font-semibold uppercase text-white/45">01 / The problem</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-white font-medium">
+          <p class="label text-[12px] font-semibold uppercase text-white/60">01 / The problem</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-white font-medium">
             You already paid to win them. Then they're gone before they cover the cost.
           </h2>
           <p class="mt-6 text-[18px] leading-relaxed text-white/65">
@@ -219,7 +223,7 @@
             <div><div class="display text-[3.2rem] sm:text-[3.6rem] leading-none text-white font-medium">0</div><p class="mt-1 text-[13.5px] text-white/55">new liability added</p></div>
           </div>
         </div>
-        <figure><div class="flex items-baseline justify-between mb-3"><span class="text-[11px] uppercase tracking-[.12em] text-white/40">First deposits &middot; last 30 days</span><span class="text-[11px] text-white/40">1 of 12 survived</span></div><div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5"><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;21</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 9 L20 13 L38 11 L56 22 L76 30 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;07</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 7 L22 16 L42 14 L62 26 L82 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;33</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 12 L18 10 L36 20 L54 27 L74 31 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;56</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 8 L24 12 L44 23 L66 29 L86 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;12</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 10 L20 9 L38 18 L58 24 L78 31 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;88</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 11 L26 15 L46 25 L68 30 L88 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(29,68,216,.6);background:rgba(29,68,216,.12)"><div class="text-[9px] font-semibold font-mono" style="color:#9bc0ff">#&bull;&bull;44 &middot; alive</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 15 L20 12 L40 13 L60 10 L80 12 L98 11" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;19</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 9 L22 14 L40 12 L60 23 L80 31 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;03</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 13 L20 11 L40 21 L60 28 L80 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;61</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 8 L24 17 L44 15 L64 27 L84 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;27</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 10 L20 12 L36 22 L56 29 L78 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/35">#&bull;&bull;40</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 12 L22 13 L42 24 L62 30 L82 33 L98 35" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><figcaption class="mt-4 text-[13px] italic text-white/45">Most new accounts flatline inside two weeks. The one in blue had SteadyHand watching.</figcaption></figure>
+        <figure><div class="flex items-baseline justify-between mb-3"><span class="text-[11px] uppercase tracking-[.12em] text-white/55">First deposits &middot; last 30 days</span><span class="text-[11px] text-white/55">1 of 12 survived</span></div><div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5"><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;21</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 9 L20 13 L38 11 L56 22 L76 30 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;07</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 7 L22 16 L42 14 L62 26 L82 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;33</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 12 L18 10 L36 20 L54 27 L74 31 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;56</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 8 L24 12 L44 23 L66 29 L86 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;12</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 10 L20 9 L38 18 L58 24 L78 31 L98 33" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;88</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 11 L26 15 L46 25 L68 30 L88 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(29,68,216,.6);background:rgba(29,68,216,.12)"><div class="text-[9px] font-semibold font-mono" style="color:#9bc0ff">#&bull;&bull;44 &middot; alive</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 15 L20 12 L40 13 L60 10 L80 12 L98 11" fill="none" stroke="#7fb0f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;19</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 9 L22 14 L40 12 L60 23 L80 31 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;03</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 13 L20 11 L40 21 L60 28 L80 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;61</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 8 L24 17 L44 15 L64 27 L84 32 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;27</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 10 L20 12 L36 22 L56 29 L78 33 L98 34" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="rounded-md border p-2.5" style="border-color:rgba(255,255,255,.10)"><div class="text-[9px] font-mono text-white/50">#&bull;&bull;40</div><svg viewBox="0 0 100 34" preserveAspectRatio="none" class="w-full mt-1.5 aspect-[100/34]"><path d="M2 12 L22 13 L42 24 L62 30 L82 33 L98 35" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><figcaption class="mt-4 text-[13px] italic text-white/60">Most new accounts flatline inside two weeks. The one in blue had SteadyHand watching.</figcaption></figure>
       </div>
     </section>
 
@@ -227,8 +231,8 @@
     <section id="roi" class="border-b rule bg-panel">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">02 / The math</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">02 / The math</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">
             Put your own numbers in.
           </h2>
           <p class="mt-6 text-[18px] leading-relaxed text-ink/70">
@@ -262,15 +266,15 @@
 
           <div class="mt-7 pt-6 border-t rule grid grid-cols-2 gap-4">
             <div>
-              <div class="text-[12px] label uppercase text-ink/45">Accounts kept alive / mo</div>
+              <div class="text-[12px] label uppercase text-ink/60">Accounts kept alive / mo</div>
               <div id="saved" class="mt-1 font-mono text-[2.4rem] leading-none text-ink font-medium">20</div>
             </div>
             <div>
-              <div class="text-[12px] label uppercase text-ink/45">Spend recovered / yr</div>
+              <div class="text-[12px] label uppercase text-ink/60">Spend recovered / yr</div>
               <div id="recovered" class="mt-1 font-mono text-[2.4rem] leading-none text-blue font-medium">$60,000</div>
             </div>
           </div>
-          <p class="mt-5 text-[11.5px] text-ink/40 italic">Illustrative model. Not a forecast or guarantee.</p>
+          <p class="mt-5 text-[11.5px] text-ink/55 italic">Illustrative model. Not a forecast or guarantee.</p>
         </div>
       </div>
     </section>
@@ -293,8 +297,8 @@
     <section class="border-b rule">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="reveal">
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">03 / Why it works</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">03 / Why it works</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">
             Get someone past day eleven and everything downstream changes.
           </h2>
           <div class="mt-6 space-y-5 text-[18px] leading-relaxed text-ink/70">
@@ -328,7 +332,7 @@
             <span class="flex items-center gap-2 font-medium text-ink"><span class="h-[2px] w-5 bg-blue"></span>With SteadyHand</span>
             <span class="flex items-center gap-2 text-ink/55"><span class="h-[2px] w-5" style="background-image:repeating-linear-gradient(90deg,rgba(14,21,38,.5) 0 3px,transparent 3px 6px)"></span>Without it</span>
           </div>
-          <p class="mt-4 text-[12px] text-ink/45 italic">Illustrative. Your real numbers come from the pilot.</p>
+          <p class="mt-4 text-[12px] text-ink/55 italic">Illustrative. Your real numbers come from the pilot.</p>
         </figure>
       </div>
     </section>
@@ -337,8 +341,8 @@
     <section id="product" class="border-b rule bg-panel">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24">
         <div class="max-w-2xl">
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">04 / What you get</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Two things, one read-only connection.</h2>
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">04 / What you get</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Two things, one read-only connection.</h2>
           <p class="mt-5 text-[18px] leading-relaxed text-ink/70">A console for whoever runs retention, and a quiet warning layer for your traders. You hook it up once. Nothing else on your side changes.</p>
         </div>
 
@@ -370,8 +374,8 @@
     <section id="book" class="border-b rule">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24">
         <div class="max-w-2xl">
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">05 / On your book</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Nothing for compliance to lose sleep over.</h2>
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">05 / On your book</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Nothing for compliance to lose sleep over.</h2>
         </div>
 
         <dl class="mt-12 divide-y rule border-y rule">
@@ -395,7 +399,7 @@
 
         <!-- B-book objection -->
         <div class="mt-12 bg-ink text-white rounded-lg p-7 sm:p-10">
-          <p class="label text-[12px] font-semibold uppercase text-white/45">If you run a B-book</p>
+          <p class="label text-[12px] font-semibold uppercase text-white/60">If you run a B-book</p>
           <h3 class="mt-4 display text-[1.6rem] sm:text-[2rem] leading-snug text-white font-medium max-w-3xl">
             Longer-lived clients are worth more to you, not less.
           </h3>
@@ -418,8 +422,8 @@
     <section id="pilot" class="border-b rule bg-panel">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16">
         <div>
-          <p class="label text-[12px] font-semibold uppercase text-ink/45">06 / The pilot</p>
-          <h2 class="mt-5 display text-[2rem] sm:text-[2.8rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Run it on your own book for a month. Free.</h2>
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">06 / The pilot</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Run it on your own book for a month. Free.</h2>
           <p class="mt-6 text-[18px] leading-relaxed text-ink/70">
             I only take a few broker pilots at a time, so each one gets proper attention. We agree what
             &ldquo;working&rdquo; looks like up front, you connect a read-only feed, and at day 30 you look at the
@@ -432,7 +436,7 @@
           </div>
 
           <!-- TODO: replace YOUR_CALENDLY with your real booking link -->
-          <a href="mailto:ratko@steadyhand.app?subject=SteadyHand%20broker%20pilot" target="_blank" rel="noopener"
+          <a href="mailto:ratko@steadyhand.app?subject=SteadyHand%20broker%20pilot"
              class="mt-7 inline-flex items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-ink transition">
             Book a 15-min demo
           </a>
@@ -459,8 +463,8 @@
             your photo
           </div>
           <div>
-            <p class="label text-[12px] font-semibold uppercase text-ink/45">07 / Who's behind it</p>
-            <h2 class="mt-5 display text-[1.8rem] sm:text-[2.4rem] leading-[1.1] tracking-[-0.01em] text-ink font-medium">
+            <p class="label text-[12px] font-semibold uppercase text-ink/55">07 / Who's behind it</p>
+            <h2 class="mt-5 display text-[1.7rem] sm:text-[2.1rem] leading-[1.1] tracking-[-0.01em] text-ink font-medium">
               I've sat on your side of the desk for eight years.
             </h2>
             <p class="mt-6 text-[18px] leading-relaxed text-ink/70 max-w-2xl">
@@ -483,7 +487,7 @@
     <!-- ============================ FAQ ============================ -->
     <section class="border-b rule bg-panel">
       <div class="max-w-3xl mx-auto px-5 sm:px-6 py-16 sm:py-24">
-        <h2 class="display text-[2rem] sm:text-[2.6rem] leading-[1.1] tracking-tight text-ink font-medium">A few straight answers.</h2>
+        <h2 class="display text-[1.8rem] sm:text-[2.2rem] leading-[1.1] tracking-tight text-ink font-medium">A few straight answers.</h2>
         <div class="mt-10 divide-y rule border-y rule">
           <details class="group py-2" open>
             <summary class="flex cursor-pointer items-center justify-between gap-4 py-4 list-none">
@@ -527,12 +531,12 @@
     <!-- ============================ CLOSING ============================ -->
     <section class="bg-ink text-white">
       <div class="max-w-6xl mx-auto px-5 sm:px-6 py-20 sm:py-28">
-        <h2 class="display text-[2.2rem] sm:text-[3.2rem] leading-[1.05] tracking-[-0.01em] text-white font-medium max-w-3xl">
+        <h2 class="display text-[1.9rem] sm:text-[2.6rem] leading-[1.05] tracking-[-0.01em] text-white font-medium max-w-3xl">
           Stop paying to acquire traders who are gone in two weeks.
         </h2>
         <p class="mt-5 text-[18px] text-white/65 max-w-xl">One month, free, measured on your own book. If it doesn't work, you've lost nothing.</p>
         <div class="mt-9 flex flex-col sm:flex-row gap-4">
-          <a href="mailto:ratko@steadyhand.app?subject=SteadyHand%20broker%20pilot" target="_blank" rel="noopener" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-white hover:text-ink transition">Book a 15-min demo</a>
+          <a href="mailto:ratko@steadyhand.app?subject=SteadyHand%20broker%20pilot" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-white hover:text-ink transition">Book a 15-min demo</a>
           <a href="mailto:ratko@steadyhand.app?subject=SteadyHand%20broker%20pilot" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full border border-white/25 text-white font-semibold hover:bg-white/10 transition">Email instead</a>
         </div>
       </div>

@@ -108,6 +108,19 @@
     el.addEventListener('click', function (e) { e.preventDefault(); if (banner) banner.classList.remove('hidden'); });
   });
 
+  // mobile nav
+  var navToggle = document.getElementById('nav-toggle');
+  var navPanel = document.getElementById('mobile-nav');
+  if (navToggle && navPanel) {
+    navToggle.addEventListener('click', function () {
+      var nowHidden = navPanel.classList.toggle('hidden');
+      navToggle.setAttribute('aria-expanded', String(!nowHidden));
+    });
+    navPanel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { navPanel.classList.add('hidden'); navToggle.setAttribute('aria-expanded', 'false'); });
+    });
+  }
+
   // interactive console demo
   var cons = document.getElementById('sh-console');
   if (cons) {
@@ -120,11 +133,16 @@
     tabs.forEach(function (t) { t.addEventListener('click', function () { activate(t.getAttribute('data-tab')); }); });
     cons.querySelectorAll('[data-tab-link]').forEach(function (b) { b.addEventListener('click', function () { activate(b.getAttribute('data-tab-link')); }); });
     cons.querySelectorAll('.sh-row').forEach(function (row) {
-      row.addEventListener('click', function () {
+      row.setAttribute('tabindex', '0');
+      var toggleRow = function () {
         var open = row.getAttribute('aria-expanded') === 'true';
         row.setAttribute('aria-expanded', String(!open));
         var d = row.nextElementSibling;
         if (d && d.classList.contains('sh-detail')) d.classList.toggle('hidden', open);
+      };
+      row.addEventListener('click', toggleRow);
+      row.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleRow(); }
       });
     });
     var chips = cons.querySelectorAll('.sh-chip');

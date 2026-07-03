@@ -1,0 +1,6 @@
+# Demo phase: pages carry a noindex meta tag; crawling stays allowed so the tag can be seen.
+User-agent: *
+Allow: /
+
+# Final domain sitemap (active at launch)
+Sitemap: https://steadyhand.app/sitemap.xml
