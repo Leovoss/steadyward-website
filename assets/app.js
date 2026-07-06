@@ -1,4 +1,4 @@
-/* SteadyHand site behaviour. Loaded with defer, so the DOM is ready. */
+/* Steadyward site behaviour. Loaded with defer, so the DOM is ready. */
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -80,10 +80,10 @@
   // cookie consent + consent-gated analytics
   function loadAnalytics() {
     if (window.__shAnalytics) return; window.__shAnalytics = true;
-    // Plausible: cookieless, privacy-friendly. Needs a Plausible account with domain 'steadyhand.app'.
+    // Plausible: cookieless, privacy-friendly. Needs a Plausible account with domain 'steadyward.com'.
     var s = document.createElement('script');
     s.defer = true;
-    s.setAttribute('data-domain', 'steadyhand.app');
+    s.setAttribute('data-domain', 'steadyward.com');
     s.src = 'https://plausible.io/js/script.js';
     document.head.appendChild(s);
   }
