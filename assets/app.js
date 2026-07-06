@@ -77,37 +77,6 @@
     calc();
   }
 
-  // cookie consent + consent-gated analytics
-  function loadAnalytics() {
-    if (window.__shAnalytics) return; window.__shAnalytics = true;
-    // Plausible: cookieless, privacy-friendly. Needs a Plausible account with domain 'steadyward.com'.
-    var s = document.createElement('script');
-    s.defer = true;
-    s.setAttribute('data-domain', 'steadyward.com');
-    s.src = 'https://plausible.io/js/script.js';
-    document.head.appendChild(s);
-  }
-  var KEY = 'sh-consent';
-  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-  if (saved === 'accepted') loadAnalytics();
-
-  var banner = document.getElementById('cookie-banner');
-  if (banner) {
-    var savePref = function (v) {
-      try { localStorage.setItem(KEY, v); } catch (e) {}
-      banner.classList.add('hidden');
-      if (v === 'accepted') loadAnalytics();
-    };
-    if (saved !== 'accepted' && saved !== 'rejected') banner.classList.remove('hidden');
-    var acc = document.getElementById('cookie-accept');
-    var rej = document.getElementById('cookie-reject');
-    if (acc) acc.addEventListener('click', function () { savePref('accepted'); });
-    if (rej) rej.addEventListener('click', function () { savePref('rejected'); });
-  }
-  document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
-    el.addEventListener('click', function (e) { e.preventDefault(); if (banner) banner.classList.remove('hidden'); });
-  });
-
   // mobile nav
   var navToggle = document.getElementById('nav-toggle');
   var navPanel = document.getElementById('mobile-nav');
