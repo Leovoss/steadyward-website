@@ -129,4 +129,15 @@
       });
     });
   }
+  // hide-on-scroll-down / show-on-scroll-up header
+  var siteHeader = document.getElementById('site-header');
+  if (siteHeader) {
+    var lastY = window.pageYOffset || 0;
+    window.addEventListener('scroll', function () {
+      var y = window.pageYOffset || 0;
+      if (y > lastY && y > 140) siteHeader.classList.add('sh-hide');
+      else siteHeader.classList.remove('sh-hide');
+      lastY = y;
+    }, { passive: true });
+  }
 })();

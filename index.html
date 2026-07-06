@@ -42,6 +42,8 @@
     .sh-row:focus-visible{ outline:2px solid #1d44d8; outline-offset:-2px; }
     .sh-caret{ transition:transform .15s ease; }
     .sh-row[aria-expanded="true"] .sh-caret{ transform:rotate(90deg); }
+    #site-header{transition:transform .28s ease;will-change:transform}
+    #site-header.sh-hide{transform:translateY(-100%)}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Steadyward","url":"https://steadyward.com/","logo":"https://steadyward.com/apple-touch-icon.png","email":"ratko@steadyward.com","description":"Read-only behavioural retention layer for MT4 and MT5 brokers."}</script>
 </head>
@@ -49,18 +51,18 @@
 <body class="font-sans bg-white text-ink/80 selection:bg-blue/15 selection:text-ink">
 
   <!-- ============================ MASTHEAD ============================ -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b rule">
+  <header id="site-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b rule">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
-      <a href="#top" class="display text-[22px] font-medium tracking-tight text-ink">Steadyward</a>
+      <a href="#top" class="flex items-center gap-2 display text-[22px] font-medium tracking-tight text-ink"><svg viewBox="0 0 100 100" class="h-6 w-6 shrink-0" aria-hidden="true"><path d="M50 6 L87 19 L87 50 C87 75 69 90 50 96 C31 90 13 75 13 50 L13 19 Z" fill="#1d44d8"/><path d="M30 60 L43 44 L52 53 L62 35 L72 47" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steadyward</span></a>
       <nav class="hidden md:flex items-center gap-7 text-[14px] text-ink/60">
         <a href="#leak" class="hover:text-ink transition">The problem</a>
         <a href="#roi" class="hover:text-ink transition">The math</a>
         <a href="#product" class="hover:text-ink transition">What you get</a>
         <a href="#book" class="hover:text-ink transition">On your book</a>
       </nav>
-      <div class="flex items-center gap-2"><a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener" class="text-[14px] font-semibold px-4 py-2 rounded-full bg-blue text-white hover:bg-ink transition">Book a demo</a><button id="nav-toggle" type="button" class="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border rule text-ink" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+      <div class="flex items-center gap-2"><a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener" class="text-[14px] font-semibold px-4 py-2 rounded-full bg-blue text-white hover:bg-ink transition">Book a demo</a><button id="nav-toggle" type="button" class="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border rule text-ink" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
     </div>
-  <div id="mobile-nav" class="hidden md:hidden border-t rule bg-white"><nav class="max-w-6xl mx-auto px-6 sm:px-8 py-2 flex flex-col text-[15px]"><a href="#leak" class="py-3 border-b rule text-ink/70">The problem</a><a href="#roi" class="py-3 border-b rule text-ink/70">The math</a><a href="#product" class="py-3 border-b rule text-ink/70">What you get</a><a href="#book" class="py-3 border-b rule text-ink/70">On your book</a><a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener" class="py-3 font-semibold text-blue">Book a demo</a></nav></div></header>
+  <div id="mobile-nav" class="hidden md:hidden border-t rule bg-white"><nav class="max-w-6xl mx-auto px-6 sm:px-8 py-2 flex flex-col text-[15px]"><a href="#leak" class="py-3 border-b rule text-ink/70">The problem</a><a href="#roi" class="py-3 border-b rule text-ink/70">The math</a><a href="#product" class="py-3 border-b rule text-ink/70">What you get</a><a href="#book" class="py-3 border-b rule text-ink/70">On your book</a><a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener" class="py-3 font-semibold text-blue">Book a demo</a></nav></div></header>
 
   <main id="top">
 
@@ -76,7 +78,7 @@
             A read-only layer that catches the habits killing new accounts and warns the trader in time, so they last longer and you keep more volume. It never touches your execution.
           </p>
           <div class="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
-            <a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-ink transition">Book a 15-min demo</a>
+            <a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-ink transition">Book a 15-min demo</a>
             <a href="#roi" class="inline-flex justify-center items-center px-6 py-3.5 rounded-full border rule text-ink font-semibold hover:bg-panel transition">See the math <span aria-hidden="true" class="ml-1.5">&rarr;</span></a>
           </div>
           <p class="mt-4 text-[13px] text-ink/45">Free 30-day pilot, measured on your own book. No lock-in.</p>
@@ -432,7 +434,7 @@
           </div>
 
           
-          <a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener"
+          <a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener"
              class="mt-7 inline-flex items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-ink transition">
             Book a 15-min demo
           </a>
@@ -529,7 +531,7 @@
         </h2>
         <p class="mt-5 text-[18px] text-white/65 max-w-xl">One month, free, measured on your own book. If it doesn't work, you've lost nothing.</p>
         <div class="mt-9 flex flex-col sm:flex-row gap-4">
-          <a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-white hover:text-ink transition">Book a 15-min demo</a>
+          <a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full bg-blue text-white font-semibold hover:bg-white hover:text-ink transition">Book a 15-min demo</a>
           <a href="mailto:ratko@steadyward.com?subject=Steadyward%20broker%20pilot" class="inline-flex justify-center items-center px-7 py-3.5 rounded-full border border-white/25 text-white font-semibold hover:bg-white/10 transition">Email instead</a>
         </div>
       </div>
@@ -541,12 +543,12 @@
   <footer class="bg-ink text-white/55 border-t" style="border-color:rgba(255,255,255,.14)">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 py-12">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <a href="#top" class="display text-[20px] font-medium text-white">Steadyward</a>
+        <a href="#top" class="flex items-center gap-2 display text-[20px] font-medium text-white"><svg viewBox="0 0 100 100" class="h-6 w-6 shrink-0" aria-hidden="true"><path d="M50 6 L87 19 L87 50 C87 75 69 90 50 96 C31 90 13 75 13 50 L13 19 Z" fill="#1d44d8"/><path d="M30 60 L43 44 L52 53 L62 35 L72 47" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steadyward</span></a>
         <div class="flex flex-wrap items-center gap-x-7 gap-y-2 text-[14px]">
           <a href="#leak" class="hover:text-white transition">The problem</a>
           <a href="#roi" class="hover:text-white transition">The math</a>
           <a href="#product" class="hover:text-white transition">What you get</a>
-          <a href="https://calendly.com/ratko-steadyward/30min" target="_blank" rel="noopener" class="hover:text-white transition">Book a demo</a>
+          <a href="https://calendly.com/ratko-steadyward/steadyward-demo-meeting" target="_blank" rel="noopener" class="hover:text-white transition">Book a demo</a>
           <a href="mailto:ratko@steadyward.com" class="hover:text-white transition">ratko@steadyward.com</a>
         </div>
       </div>
