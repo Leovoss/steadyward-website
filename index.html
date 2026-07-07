@@ -97,7 +97,6 @@
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="queue" aria-selected="false">At-risk queue</button>
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="cohorts" aria-selected="false">Cohorts</button>
             <button type="button" role="tab" class="sh-tab shrink-0" data-tab="alerts" aria-selected="false">Alerts</button>
-            <button type="button" role="tab" class="sh-tab shrink-0" data-tab="account" aria-selected="false">Account view</button>
             <span class="ml-auto shrink-0 pl-3 font-mono text-[11px] text-ink/55">1,284 accounts</span>
           </div>
 
@@ -186,52 +185,6 @@
               <div class="rounded-lg border rule p-3.5"><div class="flex items-center gap-2 flex-wrap"><span class="font-mono text-[11px] text-ink/45">13:56</span><span class="font-mono text-[11px] text-ink/60">#&bull;&bull;12</span><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Revenge trading</span></div><p class="mt-1.5 text-[13px] text-ink/80 leading-snug">Re-entered GBPUSD 90s after a stop-out, same direction.</p></div>
               <div class="rounded-lg border rule p-3.5"><div class="flex items-center gap-2 flex-wrap"><span class="font-mono text-[11px] text-ink/45">13:40</span><span class="font-mono text-[11px] text-ink/60">#&bull;&bull;88</span><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Sizing up</span></div><p class="mt-1.5 text-[13px] text-ink/80 leading-snug">Position 2.1&times; your rolling average following two losses.</p></div>
               <div class="rounded-lg border rule p-3.5"><div class="flex items-center gap-2 flex-wrap"><span class="font-mono text-[11px] text-ink/45">13:03</span><span class="font-mono text-[11px] text-ink/60">#&bull;&bull;31</span><span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">Plan breach</span></div><p class="mt-1.5 text-[13px] text-ink/80 leading-snug">Trading outside your declared session hours again.</p></div>
-            </div>
-          </div>
-
-          <!-- ACCOUNT VIEW -->
-          <div class="sh-panel hidden" data-panel="account">
-            <div class="flex flex-wrap items-center gap-2 px-4 py-3 border-b rule">
-              <span class="font-mono text-[12px] text-ink/60">#&bull;&bull;92</span>
-              <span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">No stop losses</span>
-              <span class="font-mono text-[11px] text-ink/45">connected 41 days</span>
-              <button type="button" id="sh-export" class="ml-auto inline-flex items-center gap-1.5 rounded-full border rule px-3 py-1 font-mono text-[11px] text-ink/70 hover:bg-panel transition">
-                <svg viewBox="0 0 24 24" class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                Export CSV
-              </button>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 border-b rule divide-x divide-y md:divide-y-0 rule">
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Win rate</div><div class="mt-1.5 font-mono text-[1.5rem] font-semibold text-ink leading-none">73%</div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Trades, 30d</div><div class="mt-1.5 font-mono text-[1.5rem] font-semibold text-ink leading-none">68</div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Stop-loss usage</div><div class="mt-1.5 font-mono text-[1.5rem] font-semibold text-blue leading-none">0 / 68</div></div>
-              <div class="p-4"><div class="font-mono text-[10px] uppercase tracking-wide text-ink/60">Risk score</div><div class="mt-1.5 font-mono text-[1.5rem] font-semibold text-ink leading-none">71</div></div>
-            </div>
-
-            <div class="grid lg:grid-cols-[1.25fr,1fr] divide-y lg:divide-y-0 lg:divide-x rule">
-              <div class="p-5">
-                <div class="flex items-baseline justify-between"><span class="text-[13px] font-semibold text-ink">Balance, last 30 days</span><span class="font-mono text-[11px] text-ink/55">USD</span></div>
-                <svg viewBox="0 0 340 130" width="340" height="130" class="mt-4 w-full h-auto" role="img" aria-label="Balance curve rising with one sharp dip">
-                  <g stroke="#0e1526" stroke-opacity="0.08"><line x1="0" y1="30" x2="340" y2="30"/><line x1="0" y1="65" x2="340" y2="65"/><line x1="0" y1="100" x2="340" y2="100"/></g>
-                  <path d="M4 112 L28 108 L52 118 L76 110 L100 96 L124 99 L148 60 L172 63 L196 55 L220 34 L244 38 L268 26 L292 20 L316 24 L336 14"
-                        fill="none" stroke="#1d44d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle cx="52" cy="118" r="3.5" fill="#0e1526" fill-opacity="0.6"/>
-                  <text x="58" y="124" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0e1526" fill-opacity="0.55">-$3.7k, largest loss, no SL</text>
-                  <circle cx="336" cy="14" r="3.5" fill="#1d44d8"/>
-                </svg>
-                <div class="mt-2 font-mono text-[10px] text-ink/55">winning account. that is exactly why the habit is invisible to the trader.</div>
-              </div>
-              <div>
-                <div class="px-5 py-3 border-b rule"><span class="text-[13px] font-semibold text-ink">What the engine sees</span></div>
-                <div class="divide-y rule">
-                  <div class="p-4"><div class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-blue"></span><span class="font-mono text-[10px] uppercase tracking-wide text-ink/60">warning &middot; exposure</span></div>
-                    <p class="mt-1.5 text-[13px] text-ink/80 leading-snug">68 trades, zero stop losses, position size up to 20 lots. The one loss that got away cost 7.6&times; the median loss.</p></div>
-                  <div class="p-4"><div class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-blue"></span><span class="font-mono text-[10px] uppercase tracking-wide text-ink/60">warning &middot; sizing</span></div>
-                    <p class="mt-1.5 text-[13px] text-ink/80 leading-snug">Size doubled or more right after a loss 4 times this month.</p></div>
-                  <div class="p-4"><div class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-ink/20"></span><span class="font-mono text-[10px] uppercase tracking-wide text-ink/45">info &middot; strength</span></div>
-                    <p class="mt-1.5 text-[13px] text-ink/70 leading-snug">Losses cut in a median 1 minute, winners held 24. The instinct is right. The insurance is missing.</p></div>
-                </div>
-              </div>
             </div>
           </div>
 
