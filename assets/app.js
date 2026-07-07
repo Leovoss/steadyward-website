@@ -129,6 +129,30 @@
       });
     });
   }
+  // export CSV button in the account view (section 04)
+  var shExport = document.getElementById('sh-export');
+  if (shExport) {
+    shExport.addEventListener('click', function () {
+      var rows = [
+        ['ticket','symbol','type','lots','open_time','close_time','sl_set','profit_usd'],
+        ['••2324','XAUUSD','BUY','5.00','2026-05-28 21:02','2026-05-28 21:26','no','+1240'],
+        ['••2381','WTICASH','BUY','10.00','2026-05-29 10:11','2026-05-29 10:12','no','-410'],
+        ['••2402','WTICASH','BUY','20.00','2026-05-29 10:14','2026-05-29 11:03','no','+3960'],
+        ['••2544','XAUUSD','SELL','5.00','2026-06-01 09:40','2026-06-01 10:22','no','+2210'],
+        ['••2561','XRPUSD','BUY','3.00','2026-06-01 14:05','2026-06-01 14:06','no','-483'],
+        ['••2570','WTICASH','BUY','20.00','2026-06-02 11:30','2026-06-02 12:40','no','+5120']
+      ];
+      var csv = rows.map(function (r) { return r.join(','); }).join('\n');
+      csv += '\n# Steadyward sample export. Illustrative data, not client records.';
+      var blob = new Blob([csv], { type: 'text/csv' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'steadyward_sample_export.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
   // hide-on-scroll-down / show-on-scroll-up header
   var siteHeader = document.getElementById('site-header');
   if (siteHeader) {
