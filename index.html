@@ -315,51 +315,8 @@
           </div>
         </div>
 
-        <figure class="reveal border rule rounded-lg p-6 sm:p-7 bg-white">
-          <div class="flex items-baseline justify-between">
-            <figcaption class="text-[14px] font-semibold text-ink">Fig. 1 &nbsp;/&nbsp; New depositors still active</figcaption>
-            <span class="label text-[11px] uppercase text-ink/40">day 0 &rarr; 30</span>
-          </div>
-          <svg viewBox="0 0 500 270" width="500" height="270" class="mt-4 w-full h-auto" role="img" aria-label="Retention over thirty days: a steep decline without Steadyward and a gentler one with it.">
-            <g stroke="#0e1526" stroke-opacity="0.10"><line x1="44" y1="36" x2="480" y2="36"/><line x1="44" y1="100" x2="480" y2="100"/><line x1="44" y1="164" x2="480" y2="164"/><line x1="44" y1="228" x2="480" y2="228"/></g>
-            <g font-family="Inter, sans-serif" font-size="10" fill="#0e1526" fill-opacity="0.45"><text x="8" y="40">100%</text><text x="16" y="168">40%</text><text x="22" y="232">0%</text></g>
-            <line x1="190" y1="36" x2="190" y2="240" stroke="#0e1526" stroke-opacity="0.2" stroke-dasharray="2 4"/>
-            <text x="196" y="50" font-family="Inter, sans-serif" font-size="10" fill="#0e1526" fill-opacity="0.5">day 11</text>
-            <path d="M44 36 L120 98 L190 152 L290 200 L390 220 L480 230" fill="none" stroke="#0e1526" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" stroke-opacity="0.5"/>
-            <path d="M44 36 L120 66 L190 92 L290 116 L390 134 L480 146" fill="none" stroke="#1d44d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/>
-            <circle cx="480" cy="146" r="4" fill="#1d44d8"/><circle cx="480" cy="230" r="4" fill="#0e1526" fill-opacity="0.5"/>
-          </svg>
-          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[13px]">
-            <span class="flex items-center gap-2 font-medium text-ink"><span class="h-[2px] w-5 bg-blue"></span>With Steadyward</span>
-            <span class="flex items-center gap-2 text-ink/55"><span class="h-[2px] w-5" style="background-image:repeating-linear-gradient(90deg,rgba(14,21,38,.5) 0 3px,transparent 3px 6px)"></span>Without it</span>
-          </div>
-          <p class="mt-4 text-[12px] text-ink/55 italic">Illustrative. Your real numbers come from the pilot.</p>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============================ 04 WHAT YOU GET ============================ -->
-    <section id="product" class="border-b rule bg-panel">
-      <div class="max-w-[1400px] mx-auto px-6 sm:px-8 py-16 sm:py-24">
-        <div class="max-w-2xl">
-          <p class="label text-[12px] font-semibold uppercase text-ink/55">04 / What you get</p>
-          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Two things, one read-only connection.</h2>
-          <p class="mt-5 text-[18px] leading-relaxed text-ink/70">A console for whoever runs retention, and a quiet warning layer for your traders. You hook it up once. Nothing else on your side changes.</p>
-        </div>
-
-        <!-- feature 1: the console, paired with the account view -->
-        <div class="mt-12 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <div>
-            <h3 class="display text-[1.6rem] text-ink font-medium">The console</h3>
-            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">Who's spiralling right now, why, and whether lifespan and retention are moving in the right direction, against your own baseline. Open any trader to see the whole story on one screen.</p>
-            <ul class="mt-5 space-y-3.5 text-[16px] text-ink">
-              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Live at-risk queue with a risk score per account</li>
-              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> The pattern behind each one, in plain words</li>
-              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Cohort lifespan and retention, plus raw trades on export</li>
-            </ul>
-          </div>
-          <div>
-            <div class="rounded-xl border rule bg-white shadow-md overflow-hidden">
+        <div class="reveal">
+          <div class="rounded-xl border rule bg-white shadow-md overflow-hidden">
             <div class="flex flex-wrap items-center gap-2 px-4 py-3 bg-panel border-b rule">
               <span class="font-mono text-[12px] text-ink/60">#&bull;&bull;92</span>
               <span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">No stop losses</span>
@@ -401,8 +358,53 @@
                 </div>
               </div>
             </div>
-            </div>
-            <p class="mt-3 font-mono text-[10px] text-ink/55">Anonymised sample account. Illustrative data.</p>
+          </div>
+          <p class="mt-3 font-mono text-[10px] text-ink/55">Anonymised sample account. Illustrative data.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ 04 WHAT YOU GET ============================ -->
+    <section id="product" class="border-b rule bg-panel">
+      <div class="max-w-[1400px] mx-auto px-6 sm:px-8 py-16 sm:py-24">
+        <div class="max-w-2xl">
+          <p class="label text-[12px] font-semibold uppercase text-ink/55">04 / What you get</p>
+          <h2 class="mt-5 display text-[1.8rem] sm:text-[2.3rem] leading-[1.08] tracking-[-0.01em] text-ink font-medium">Two things, one read-only connection.</h2>
+          <p class="mt-5 text-[18px] leading-relaxed text-ink/70">A console for whoever runs retention, and a quiet warning layer for your traders. You hook it up once. Nothing else on your side changes.</p>
+        </div>
+
+        <!-- feature 1: the console, paired with the retention figure -->
+        <div class="mt-12 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div>
+            <h3 class="display text-[1.6rem] text-ink font-medium">The console</h3>
+            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">Who's spiralling right now, why, and whether lifespan and retention are moving in the right direction, against your own baseline.</p>
+            <ul class="mt-5 space-y-3.5 text-[16px] text-ink">
+              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Live at-risk queue with a risk score per account</li>
+              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> The pattern behind each one, in plain words</li>
+              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Cohort lifespan and retention, tracked over time</li>
+            </ul>
+          </div>
+          <div>
+            <figure class="border rule rounded-lg p-6 sm:p-7 bg-white shadow-sm">
+              <div class="flex items-baseline justify-between">
+                <figcaption class="text-[14px] font-semibold text-ink">Fig. 1 &nbsp;/&nbsp; New depositors still active</figcaption>
+                <span class="label text-[11px] uppercase text-ink/40">day 0 &rarr; 30</span>
+              </div>
+              <svg viewBox="0 0 500 270" width="500" height="270" class="mt-4 w-full h-auto" role="img" aria-label="Retention over thirty days: a steep decline without Steadyward and a gentler one with it.">
+                <g stroke="#0e1526" stroke-opacity="0.10"><line x1="44" y1="36" x2="480" y2="36"/><line x1="44" y1="100" x2="480" y2="100"/><line x1="44" y1="164" x2="480" y2="164"/><line x1="44" y1="228" x2="480" y2="228"/></g>
+                <g font-family="Inter, sans-serif" font-size="10" fill="#0e1526" fill-opacity="0.45"><text x="8" y="40">100%</text><text x="16" y="168">40%</text><text x="22" y="232">0%</text></g>
+                <line x1="190" y1="36" x2="190" y2="240" stroke="#0e1526" stroke-opacity="0.2" stroke-dasharray="2 4"/>
+                <text x="196" y="50" font-family="Inter, sans-serif" font-size="10" fill="#0e1526" fill-opacity="0.5">day 11</text>
+                <path d="M44 36 L120 98 L190 152 L290 200 L390 220 L480 230" fill="none" stroke="#0e1526" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" stroke-opacity="0.5"/>
+                <path d="M44 36 L120 66 L190 92 L290 116 L390 134 L480 146" fill="none" stroke="#1d44d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/>
+                <circle cx="480" cy="146" r="4" fill="#1d44d8"/><circle cx="480" cy="230" r="4" fill="#0e1526" fill-opacity="0.5"/>
+              </svg>
+              <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[13px]">
+                <span class="flex items-center gap-2 font-medium text-ink"><span class="h-[2px] w-5 bg-blue"></span>With Steadyward</span>
+                <span class="flex items-center gap-2 text-ink/55"><span class="h-[2px] w-5" style="background-image:repeating-linear-gradient(90deg,rgba(14,21,38,.5) 0 3px,transparent 3px 6px)"></span>Without it</span>
+              </div>
+              <p class="mt-4 text-[12px] text-ink/55 italic">Illustrative. Your real numbers come from the pilot.</p>
+            </figure>
           </div>
         </div>
 
