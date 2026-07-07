@@ -44,6 +44,7 @@
     .sh-row[aria-expanded="true"] .sh-caret{ transform:rotate(90deg); }
     #site-header{transition:transform .28s ease;will-change:transform}
     #site-header.sh-hide{transform:translateY(-100%)}
+    .tg-bubble::before{content:"";position:absolute;bottom:0;left:-7px;width:0;height:0;border-right:12px solid #fff;border-bottom:12px solid transparent}
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Steadyward","url":"https://steadyward.com/","logo":"https://steadyward.com/apple-touch-icon.png","email":"ratko@steadyward.com","description":"Read-only behavioural retention layer for MT4 and MT5 brokers."}</script>
 </head>
@@ -346,51 +347,19 @@
           <p class="mt-5 text-[18px] leading-relaxed text-ink/70">A console for whoever runs retention, and a quiet warning layer for your traders. You hook it up once. Nothing else on your side changes.</p>
         </div>
 
-        <div class="mt-12 grid lg:grid-cols-2 gap-12 lg:gap-14">
+        <!-- feature 1: the console, paired with the account view -->
+        <div class="mt-12 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
             <h3 class="display text-[1.6rem] text-ink font-medium">The console</h3>
-            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">Who's spiralling right now, why, and whether lifespan and retention are moving in the right direction, against your own baseline.</p>
+            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">Who's spiralling right now, why, and whether lifespan and retention are moving in the right direction, against your own baseline. Open any trader to see the whole story on one screen.</p>
             <ul class="mt-5 space-y-3.5 text-[16px] text-ink">
               <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Live at-risk queue with a risk score per account</li>
               <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> The pattern behind each one, in plain words</li>
-              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Cohort lifespan and retention, tracked over time</li>
+              <li class="flex items-start gap-3"><span class="mt-2 inline-block h-1.5 w-1.5 bg-blue shrink-0"></span> Cohort lifespan and retention, plus raw trades on export</li>
             </ul>
           </div>
           <div>
-            <h3 class="display text-[1.6rem] text-ink font-medium">The warning a trader sees</h3>
-            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">It reaches them on Telegram, in plain language, the moment a habit turns dangerous. Run it under your own name.</p>
-            <!-- Telegram alert mockup -->
-            <div class="mt-6 max-w-md rounded-2xl border rule bg-white overflow-hidden shadow-sm">
-              <div class="flex items-center gap-3 px-4 py-3 border-b rule">
-                <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full overflow-hidden">
-                  <svg viewBox="0 0 100 100" class="h-9 w-9" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#1d44d8"/><path d="M50 22 C60 22 70 24.5 75 26.5 C77 27.3 78 28.8 78 31 L78 50 C78 66 66 76 50 82 C34 76 22 66 22 50 L22 31 C22 28.8 23 27.3 25 26.5 C30 24.5 40 22 50 22 Z" fill="#ffffff"/></svg>
-                </span>
-                <div class="leading-tight">
-                  <div class="text-[14px] font-semibold text-ink">Steadyward</div>
-                  <div class="font-mono text-[11px] text-ink/45">bot &middot; only messages the trader</div>
-                </div>
-                <svg viewBox="0 0 24 24" class="ml-auto h-4 w-4 text-blue/60" fill="currentColor" aria-hidden="true"><path d="M21.9 2.6 2.9 10.1c-1 .4-1 1.8 0 2.2l4.6 1.6 1.8 5.6c.3.9 1.4 1.1 2 .4l2.4-2.6 4.6 3.4c.7.5 1.7.1 1.9-.7l3.3-15.6c.2-1-.7-1.9-1.6-1.2Z"/></svg>
-              </div>
-              <div class="bg-panel px-4 py-5">
-                <div class="max-w-[92%] rounded-2xl rounded-tl-md border rule bg-white px-4 py-3 shadow-sm">
-                  <div class="text-[12px] font-semibold text-blue mb-1">Steadyward</div>
-                  <p class="text-[14.5px] text-ink/85 leading-snug">You opened EURUSD 47 seconds after a loss, at 2.4&times; your usual size. That move came right before six of your last nine red days.</p>
-                  <div class="mt-1.5 flex items-center justify-end gap-1 font-mono text-[10px] text-ink/40">14:32
-                    <svg viewBox="0 0 20 11" class="h-2.5 w-4 text-blue" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6 5 9 11 2.5"/><path d="M9 9 10 10 18 1.5"/></svg>
-                  </div>
-                </div>
-                <p class="mt-3 pl-1 text-[12px] text-ink/45">A real alert. Login redacted.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- account view: the console zoomed into one trader -->
-        <div class="mt-14">
-          <h3 class="display text-[1.6rem] text-ink font-medium">The console, zoomed into one account</h3>
-          <p class="mt-2 max-w-2xl text-[16px] text-ink/65 leading-relaxed">Open any trader to see the whole story on one screen: their curve, the habit driving the risk, and every signal the engine has raised. Pull the raw trades whenever you want them.</p>
-
-          <div class="mt-6 max-w-3xl rounded-xl border rule bg-white shadow-md overflow-hidden">
+            <div class="rounded-xl border rule bg-white shadow-md overflow-hidden">
             <div class="flex flex-wrap items-center gap-2 px-4 py-3 bg-panel border-b rule">
               <span class="font-mono text-[12px] text-ink/60">#&bull;&bull;92</span>
               <span class="inline-flex rounded-full bg-blue/10 text-blue text-[11px] font-medium px-2 py-0.5">No stop losses</span>
@@ -432,8 +401,47 @@
                 </div>
               </div>
             </div>
+            </div>
+            <p class="mt-3 font-mono text-[10px] text-ink/55">Anonymised sample account. Illustrative data.</p>
           </div>
-          <p class="mt-3 font-mono text-[10px] text-ink/55">Anonymised sample account. Illustrative data.</p>
+        </div>
+
+        <!-- feature 2: the warning a trader sees -->
+        <div class="mt-14 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div>
+            <h3 class="display text-[1.6rem] text-ink font-medium">The warning a trader sees</h3>
+            <p class="mt-2 text-[16px] text-ink/65 leading-relaxed">It reaches them on Telegram, in plain language, the moment a habit turns dangerous. Run it under your own name, so it lands as part of your service.</p>
+            <p class="mt-5 text-[13px] text-ink/45">A real alert. Login redacted.</p>
+          </div>
+          <div>
+            <!-- Telegram alert mockup -->
+            <div class="mx-auto lg:mx-0 max-w-sm rounded-2xl border rule bg-white overflow-hidden shadow-md">
+              <div class="flex items-center gap-2.5 px-3 py-2.5 border-b rule bg-white">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-blue" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full overflow-hidden">
+                  <svg viewBox="0 0 100 100" class="h-9 w-9" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#1d44d8"/><path d="M50 22 C60 22 70 24.5 75 26.5 C77 27.3 78 28.8 78 31 L78 50 C78 66 66 76 50 82 C34 76 22 66 22 50 L22 31 C22 28.8 23 27.3 25 26.5 C30 24.5 40 22 50 22 Z" fill="#ffffff"/></svg>
+                </span>
+                <div class="min-w-0 leading-tight">
+                  <div class="text-[14px] font-semibold text-ink">Steadyward</div>
+                  <div class="text-[11px] text-ink/45">bot</div>
+                </div>
+                <svg viewBox="0 0 24 24" class="ml-auto h-5 w-5 shrink-0 text-ink/35" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>
+              </div>
+              <div class="bg-panel px-3 py-4">
+                <div class="flex justify-center mb-3"><span class="rounded-full bg-ink/10 text-ink/55 text-[10.5px] font-medium px-2.5 py-0.5">Today</span></div>
+                <div class="tg-bubble relative max-w-[86%] rounded-2xl rounded-bl-none bg-white px-3.5 py-2.5 shadow-sm">
+                  <div class="text-[12.5px] font-semibold text-blue mb-0.5">Steadyward</div>
+                  <p class="text-[13.5px] text-ink/85 leading-snug">You opened EURUSD 47 seconds after a loss, at 2.4&times; your usual size. That move came right before six of your last nine red days.</p>
+                  <div class="mt-1 text-right font-mono text-[10px] text-ink/40">14:32</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 px-3 py-2.5 border-t rule bg-white">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                <div class="flex-1 truncate rounded-full bg-panel text-ink/40 text-[13px] px-3.5 py-1.5">Message</div>
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-ink/35" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3"/></svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
