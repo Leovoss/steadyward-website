@@ -39,20 +39,6 @@
     countEls.forEach(function (el) { cObs.observe(el); });
   }
 
-  // self-drawing chart lines
-  if (!reduce) {
-    document.querySelectorAll('.draw-line').forEach(function (line) {
-      try {
-        var len = line.getTotalLength();
-        line.style.strokeDasharray = len; line.style.strokeDashoffset = len;
-        var lObs = new IntersectionObserver(function (es) {
-          es.forEach(function (e) { if (e.isIntersecting) { line.style.transition = 'stroke-dashoffset 1.4s ease'; line.style.strokeDashoffset = '0'; lObs.unobserve(e.target); } });
-        }, { threshold: 0.4 });
-        lObs.observe(line);
-      } catch (err) {}
-    });
-  }
-
   // ROI calculator
   var ftd = document.getElementById('ftd');
   var cac = document.getElementById('cac');
