@@ -48,6 +48,7 @@
     var upliftVal = document.getElementById('upliftVal');
     var savedEl = document.getElementById('saved');
     var recoveredEl = document.getElementById('recovered');
+    var lostEl = document.getElementById('lost');
     var money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
     var calc = function () {
       var n = Math.max(0, parseFloat(ftd.value) || 0);
@@ -55,8 +56,10 @@
       var u = (parseFloat(uplift.value) || 0) / 100;
       if (upliftVal) upliftVal.textContent = Math.round(u * 100) + '%';
       var savedPerMonth = n * EARLY_CHURN * u;
-      var recoveredPerYear = savedPerMonth * c * 12;
+      var lostPerYear = n * EARLY_CHURN * c * 12;
+      var recoveredPerYear = lostPerYear * u;
       if (savedEl) savedEl.textContent = Math.round(savedPerMonth).toLocaleString('en-US');
+      if (lostEl) lostEl.textContent = money.format(Math.round(lostPerYear));
       if (recoveredEl) recoveredEl.textContent = money.format(Math.round(recoveredPerYear));
     };
     [ftd, cac, uplift].forEach(function (el) { el.addEventListener('input', calc); });
